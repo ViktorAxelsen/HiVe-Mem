@@ -1,0 +1,8 @@
+include LICENSE
+include .env.example
+include scripts/run.sh
+include scripts/ppo.sh
+recursive-include configs *.json
+recursive-include gvv_extractor/configs *.json
+recursive-include gvv_extractor/prompts *.json
+global-exclude *.py[cod]

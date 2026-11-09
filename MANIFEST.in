@@ -1,5 +1,6 @@
 include LICENSE
 include .env.example
+include scripts/install.sh
 include scripts/run.sh
 include scripts/ppo.sh
 recursive-include configs *.json

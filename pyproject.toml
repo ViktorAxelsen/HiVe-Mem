@@ -20,9 +20,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-eval = ["nltk>=3.8.0", "tiktoken>=0.7.0", "transformers>=4.57.1,<4.58"]
-train = ["torch>=2.1.0", "nltk>=3.8.0", "tiktoken>=0.7.0", "transformers>=4.57.1,<4.58"]
-embedding = ["torch>=2.1.0", "transformers>=4.57.1,<4.58", "huggingface-hub>=0.23.0,<2.0.0", "safetensors>=0.4.0"]
+eval = ["torch>=2.2.0", "torchvision>=0.17.0", "nltk>=3.8.0", "tiktoken>=0.7.0", "transformers>=4.57.1,<4.58"]
+train = ["torch>=2.2.0", "torchvision>=0.17.0", "nltk>=3.8.0", "tiktoken>=0.7.0", "transformers>=4.57.1,<4.58"]
+embedding = ["torch>=2.2.0", "torchvision>=0.17.0", "nltk>=3.8.0", "transformers>=4.57.1,<4.58", "huggingface-hub>=0.23.0,<2.0.0", "safetensors>=0.4.0"]
 data = ["huggingface-hub>=0.23.0,<2.0.0"]
 
 [project.scripts]

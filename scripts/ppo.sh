@@ -78,10 +78,10 @@ for hive_benchmark in "${hive_benchmarks[@]}"; do (
   flock "$hive_lock"
 
   if [[ "$hive_mode" != train ]]; then
-    prepare_stage "queries-$hive_benchmark" ./scripts/run.sh --no-env prepare queries --benchmark "$hive_benchmark" --devices cuda:0 --local-files-only
-    prepare_stage "build-$hive_benchmark" ./scripts/run.sh --no-env build --benchmark "$hive_benchmark" --all-datasets
-    prepare_stage "graph-$hive_benchmark" ./scripts/run.sh --no-env graph --degree-cap 4 "$HIVE_OUTPUT_ROOT/memory/$hive_benchmark"/datasets/*
-    prepare_stage "gvv-$hive_benchmark" ./scripts/run.sh --no-env gvv extract --dataset "$hive_label"
+    prepare_stage "queries-$hive_benchmark" bash ./scripts/run.sh --no-env prepare queries --benchmark "$hive_benchmark" --devices cuda:0 --local-files-only
+    prepare_stage "build-$hive_benchmark" bash ./scripts/run.sh --no-env build --benchmark "$hive_benchmark" --all-datasets
+    prepare_stage "graph-$hive_benchmark" bash ./scripts/run.sh --no-env graph --degree-cap 4 "$HIVE_OUTPUT_ROOT/memory/$hive_benchmark"/datasets/*
+    prepare_stage "gvv-$hive_benchmark" bash ./scripts/run.sh --no-env gvv extract --dataset "$hive_label"
     prepare_stage "gvv-audit-$hive_benchmark" "$HIVE_PYTHON" -m evidence_policy.cli --benchmark "$hive_benchmark" audit-gvv
     touch "$hive_status_dir/ppo-inputs-$hive_benchmark.ready"
     rm -f -- "$hive_status_dir/ppo-inputs-$hive_benchmark.failed"
@@ -89,12 +89,12 @@ for hive_benchmark in "${hive_benchmarks[@]}"; do (
   if [[ "$hive_mode" == prepare ]]; then exit 0; fi
   if [[ -f "$hive_status_dir/ppo-$hive_benchmark.ok" ]]; then echo "Already complete: PPO $hive_benchmark"; exit 0; fi
   step gvv-audit "$HIVE_PYTHON" -m evidence_policy.cli --benchmark "$hive_benchmark" audit-gvv
-  step train ./scripts/run.sh --no-env train --benchmark "$hive_benchmark" --device cuda:0
-  step eval-ppo ./scripts/run.sh --no-env eval policy --benchmark "$hive_benchmark" --strategy ppo --split test --device cuda:0 --checkpoint "$HIVE_OUTPUT_ROOT/evidence_policy/$hive_benchmark/checkpoints/best.pt"
-  step eval-full-evidence ./scripts/run.sh --no-env eval policy --benchmark "$hive_benchmark" --strategy full-evidence --split test --device cuda:0
-  step judge-ppo ./scripts/run.sh --no-env judge --benchmark "$hive_benchmark" --results "$HIVE_OUTPUT_ROOT/evidence_policy/$hive_benchmark/eval/test_ppo/results.json" --out-dir "$HIVE_OUTPUT_ROOT/judge/$hive_benchmark/ppo"
-  step judge-full-evidence ./scripts/run.sh --no-env judge --benchmark "$hive_benchmark" --results "$HIVE_OUTPUT_ROOT/evidence_policy/$hive_benchmark/eval/test_full-evidence/results.json" --out-dir "$HIVE_OUTPUT_ROOT/judge/$hive_benchmark/full-evidence"
-  step eval-graph ./scripts/run.sh --no-env eval --benchmark "$hive_label"
+  step train bash ./scripts/run.sh --no-env train --benchmark "$hive_benchmark" --device cuda:0
+  step eval-ppo bash ./scripts/run.sh --no-env eval policy --benchmark "$hive_benchmark" --strategy ppo --split test --device cuda:0 --checkpoint "$HIVE_OUTPUT_ROOT/evidence_policy/$hive_benchmark/checkpoints/best.pt"
+  step eval-full-evidence bash ./scripts/run.sh --no-env eval policy --benchmark "$hive_benchmark" --strategy full-evidence --split test --device cuda:0
+  step judge-ppo bash ./scripts/run.sh --no-env judge --benchmark "$hive_benchmark" --results "$HIVE_OUTPUT_ROOT/evidence_policy/$hive_benchmark/eval/test_ppo/results.json" --out-dir "$HIVE_OUTPUT_ROOT/judge/$hive_benchmark/ppo"
+  step judge-full-evidence bash ./scripts/run.sh --no-env judge --benchmark "$hive_benchmark" --results "$HIVE_OUTPUT_ROOT/evidence_policy/$hive_benchmark/eval/test_full-evidence/results.json" --out-dir "$HIVE_OUTPUT_ROOT/judge/$hive_benchmark/full-evidence"
+  step eval-graph bash ./scripts/run.sh --no-env eval --benchmark "$hive_label"
   printf '%s complete GPU=%s\n' "$(date -Is)" "$hive_gpu" > "$hive_current"
   touch "$hive_status_dir/ppo-$hive_benchmark.ok"
 ); done

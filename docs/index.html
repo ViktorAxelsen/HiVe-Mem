@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f2">
+  <meta name="description" content="HiVe-Mem broadens multimodal memory recall with affinity graphs and composes query-adaptive evidence with a lightweight learned selector.">
+  <meta name="author" content="Haozhen Zhang, Bohan Liu, Jianzhu Bao, Qingyuan Liu, Haodong Yue, Xiao Li, Zi Pong Lim, Wenya Wang">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="HiVe-Mem — Broader recall. Sharper evidence.">
+  <meta property="og:description" content="Horizontal memory expansion meets vertical evidence composition for multimodal agents.">
+  <meta property="og:url" content="https://viktoraxelsen.github.io/HiVe-Mem/">
+  <meta property="og:image" content="https://viktoraxelsen.github.io/HiVe-Mem/assets/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://viktoraxelsen.github.io/HiVe-Mem/">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>HiVe-Mem — Broader recall. Sharper evidence.</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="wordmark" href="#" aria-label="HiVe-Mem home"><img src="assets/logo.svg" width="34" height="34" alt="">HiVe-Mem<span class="wordmark-dot">.</span></a>
+      <div class="nav-links"><a href="#method">Method</a><a href="#results">Results</a><a href="#start">Get started</a></div>
+      <a class="nav-code" href="https://github.com/ViktorAxelsen/HiVe-Mem">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Multimodal agent memory</p>
+        <h1 id="hero-title">Broader recall.<br><em>Sharper evidence.</em></h1>
+        <p class="hero-intro">Remember beyond the closest match.<br>Bring forward only the evidence that matters.</p>
+        <p class="paper-title">HiVe-Mem: Interleaving Horizontal Memory Expansion and Vertical Evidence Composition for Multimodal Agents</p>
+        <div class="paper-byline">
+          <ul class="paper-authors" aria-label="Authors">
+            <li>Haozhen Zhang<sup>1*</sup></li>
+            <li>Bohan Liu<sup>1*</sup></li>
+            <li>Jianzhu Bao<sup>1</sup></li>
+            <li>Qingyuan Liu<sup>1</sup></li>
+            <li>Haodong Yue<sup>2</sup></li>
+            <li>Xiao Li<sup>3</sup></li>
+            <li>Zi Pong Lim<sup>4</sup></li>
+            <li>Wenya Wang<sup>1</sup></li>
+          </ul>
+          <ul class="paper-affiliations" aria-label="Affiliations">
+            <li><sup>1</sup> Nanyang Technological University</li>
+            <li><sup>2</sup> Tsinghua University</li>
+            <li><sup>3</sup> Sun Yat-sen University</li>
+            <li><sup>4</sup> Aumovio Singapore Pte. Ltd.</li>
+          </ul>
+          <p class="author-note">* Equal contribution.</p>
+        </div>
+        <div class="hero-actions">
+          <span class="button button-outline paper-pending">arXiv · Coming soon</span>
+          <a class="button button-outline" href="https://github.com/ViktorAxelsen/HiVe-Mem">Explore the code <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="hero-footnote">Episode-centric memory. Graph-guided recall. Learned evidence selection.</p>
+      </div>
+      <div class="hero-visual" aria-label="Concept diagram: a query retrieves seed memories, expands to connected episodes, and selects evidence for answering" role="img">
+        <div class="visual-topline"><span>MEMORY, IN TWO DIMENSIONS</span><span class="visual-number">01 / 02</span></div>
+        <div class="query-chip"><span class="query-symbol" aria-hidden="true">?</span> What color was Mei’s bag?</div>
+        <svg class="memory-graph" viewBox="0 0 480 240" aria-hidden="true">
+          <defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#d8dcd4"/></pattern></defs>
+          <rect width="480" height="240" fill="url(#dots)"/>
+          <g class="graph-muted" fill="none" stroke="#d7ddd5" stroke-width="1.5"><path d="M54 64 123 130 65 205M54 64 205 54 240 139 333 69 429 119 371 205 240 139 123 130 205 54M123 130 192 211M333 69 371 205M240 139 429 119"/></g>
+          <g fill="none" stroke="#417969" stroke-width="2"><path d="M123 130 205 54M123 130 240 139"/></g>
+          <g fill="none" stroke="#bb8c40" stroke-width="2" stroke-dasharray="5 4"><path d="M205 54 333 69M240 139 371 205"/></g>
+          <g fill="#edf0e9" stroke="#ccd4c9"><circle cx="54" cy="64" r="13"/><circle cx="65" cy="205" r="10"/><circle cx="192" cy="211" r="12"/><circle cx="429" cy="119" r="13"/></g>
+          <g fill="#286052"><circle cx="123" cy="130" r="25"/><circle cx="205" cy="54" r="21"/><circle cx="240" cy="139" r="25"/></g>
+          <g fill="#edddb9" stroke="#b78a43" stroke-width="1.5"><circle cx="333" cy="69" r="24"/><circle cx="371" cy="205" r="22"/></g>
+          <g font-family="'Segoe UI',sans-serif" text-anchor="middle" font-size="12" font-weight="600"><text x="123" y="134" fill="white">m₂</text><text x="205" y="58" fill="white">m₅</text><text x="240" y="143" fill="white">m₇</text><text x="333" y="73" fill="#76541d">m₈</text><text x="371" y="209" fill="#76541d">m₁₁</text></g>
+          <g font-family="'Segoe UI',sans-serif" font-size="10" fill="#667065"><text x="138" y="87">Mei</text><text x="263" y="53">Kyoto</text><text x="307" y="165">tote bag</text></g>
+        </svg>
+        <div class="graph-legend"><span><i class="legend-seed"></i> Semantic seeds</span><span><i class="legend-expanded"></i> Connected episodes</span></div>
+        <div class="composition-preview"><div><span class="mini-eyebrow">THEN, COMPOSE</span><strong>Different memories.<br>Different evidence.</strong></div><div class="evidence-pills"><span class="pill-selected">Summary <b>✓</b></span><span>Raw text</span><span class="pill-selected pill-gold">Visual view <b>✓</b></span><span>Full image</span></div></div>
+        <span class="visual-caption">A conceptual view of horizontal expansion + vertical composition</span>
+      </div>
+    </section>
+
+    <div class="stats-band">
+      <div class="stats wrap">
+        <div><strong>~90<span>%</span></strong><p>fewer tokens</p><small>vs. the most efficient multimodal competitor*</small></div>
+        <div><strong>3</strong><p>memory benchmarks</p><small>Mem-Gallery · WorldMemArena · H2HMem</small></div>
+        <div><strong>5</strong><p>complementary evidence forms</p><small>composed independently for each memory</small></div>
+        <div><strong>2</strong><p>evaluated base models</p><small>Qwen3-VL-4B · GPT-5-mini transfer</small></div>
+      </div>
+      <p class="stats-note wrap">*Manuscript Table 1; benchmark-averaged input + output tokens. See the <a href="#results">comparison and protocol</a>.</p>
+    </div>
+
+    <section id="method" class="section wrap" aria-labelledby="method-title">
+      <div class="section-heading"><p class="eyebrow">The idea</p><h2 id="method-title">Better memory has<br><em>two dimensions.</em></h2><p>A relevant episode can sit beyond the nearest semantic match. And even a relevant memory rarely needs to be read in full.</p></div>
+      <div class="method-steps">
+        <article><span class="step-number">01</span><h3>Preserve the episode</h3><p>Keep raw text and images alongside summaries, captions, focused visual views, and modality-aware anchors.</p><span class="step-tag">Episode-centric memory</span></article>
+        <article><span class="step-number">02</span><h3>Expand the recall</h3><p>Follow textual and visual anchor connections to recover complementary episodes beyond semantic retrieval.</p><span class="step-tag tag-green">Horizontal expansion →</span></article>
+        <article><span class="step-number">03</span><h3>Compose the evidence</h3><p>A lightweight learned selector chooses which evidence forms each retrieved episode contributes to the answer.</p><span class="step-tag tag-gold">Vertical composition ↓</span></article>
+      </div>
+      <figure class="paper-figure"><a href="assets/method.png" aria-label="Open the full-size method figure"><img src="assets/method.png" width="1572" height="752" alt="Figure 1 from the manuscript showing memory formation, affinity-guided horizontal expansion, and independent evidence-form decisions for each retrieved memory" loading="lazy"></a><figcaption><span>FIGURE 01</span> From interaction history to connected memories and query-adaptive evidence.</figcaption></figure>
+    </section>
+
+    <section class="example-section" aria-labelledby="example-title">
+      <div class="wrap example-layout">
+        <div class="example-copy"><p class="eyebrow">See the distinction</p><h2 id="example-title">One memory.<br><em>Different questions.</em></h2><p>The question changes what is useful. A trip name may need a short summary; a bag’s color may need a focused visual view.</p><p class="example-disclaimer">Illustrative example. The selections below explain the mechanism; they are not live model predictions.</p>
+          <div class="example-queries" role="group" aria-label="Choose an illustrative query"><button class="query-option" type="button" data-example="trip" aria-pressed="false" disabled><span>01</span> Which trip was Mei’s bag from? <span aria-hidden="true">↗</span></button><button class="query-option is-active" type="button" data-example="color" aria-pressed="true" disabled><span>02</span> What color was Mei’s bag? <span aria-hidden="true">↗</span></button></div>
+        </div>
+        <div class="example-memory"><div class="memory-heading"><span class="memory-index">EPISODE m₈</span><span class="small-badge">Recovered through expansion</span></div><div class="scene"><svg viewBox="0 0 360 150" role="img" aria-labelledby="scene-title"><title id="scene-title">Illustration of a red tote bag from a Kyoto trip</title><path d="M20 130h320M42 130V59l30-18 30 18v71M36 60h72M45 43h54M143 130V77h44v53M137 77l28-20 28 20M260 130V49h57v81M254 49l35-25 35 25" fill="none" stroke="#d5cbb7" stroke-width="2"/><path d="M204 64h52l9 66h-70Z" fill="#b9533f"/><path d="M215 66V51a15 15 0 0 1 30 0v15" fill="none" stroke="#944435" stroke-width="5"/><path d="M206 111h48" stroke="#ca7e6c" stroke-width="2"/><circle cx="112" cy="31" r="12" fill="#e1c17e"/></svg><span>Kyoto · a red canvas tote</span></div><div class="evidence-list" aria-label="Selected evidence for the illustrative question"><div data-evidence="summary"><span class="evidence-icon">S</span><span>Compact summary</span><span class="evidence-check">—</span></div><div data-evidence="text"><span class="evidence-icon">T</span><span>Raw interaction text</span><span class="evidence-check">—</span></div><div data-evidence="caption" class="is-selected"><span class="evidence-icon">C</span><span>Image caption</span><span class="evidence-check">✓</span></div><div data-evidence="image"><span class="evidence-icon">I</span><span>Raw image</span><span class="evidence-check">—</span></div><div data-evidence="gvv" class="is-selected"><span class="evidence-icon">V</span><span>Grounded visual view</span><span class="evidence-check">✓</span></div></div><p class="example-answer" aria-live="polite"><span>Useful evidence</span><strong id="example-explanation">A caption and a focused view preserve the bag’s color without the full scene.</strong></p></div>
+      </div>
+    </section>
+
+    <section id="results" class="section wrap" aria-labelledby="results-title">
+      <div class="section-heading results-heading"><div><p class="eyebrow">The evidence</p><h2 id="results-title">More from memory.<br><em>Less to process.</em></h2></div><p>Higher average answer quality with substantially lower token consumption across three multimodal benchmarks.</p></div>
+      <div class="results-controls"><div class="segmented" role="group" aria-label="Base model"><button type="button" data-model="qwen" aria-pressed="true" class="is-active" disabled>Qwen3-VL-4B</button><button type="button" data-model="gpt" aria-pressed="false" disabled>GPT-5-mini <span>transfer</span></button></div><label class="dataset-select">Benchmark <select id="dataset-select" disabled><option value="average">Three-benchmark average</option><option value="memgallery">Mem-Gallery</option><option value="wma">WorldMemArena</option><option value="h2hmem">H2HMem</option></select></label></div>
+      <div class="results-summary" aria-live="polite"><div><span>HiVe-Mem · LLM-Judge</span><strong id="result-lj">57.96</strong></div><div><span>Total tokens · millions</span><strong id="result-tokens">0.658<span>M</span></strong></div><div class="savings"><span>Token reduction vs. most efficient competitor</span><strong id="result-savings">91.6<span>%</span></strong></div></div>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Benchmark results table"><table><caption id="results-caption">Qwen3-VL-4B-Instruct · three-benchmark average · manuscript Table 1</caption><thead><tr><th scope="col">Multimodal method</th><th scope="col">F1 <span>↑</span></th><th scope="col">LLM-Judge <span>↑</span></th><th scope="col">Tokens (M) <span>↓</span></th><th scope="col" class="bar-column">Token footprint</th></tr></thead><tbody id="results-body"><tr><th scope="row">M2A</th><td>28.42</td><td>43.89</td><td>18.492</td><td><span class="token-track"><span style="width:100%"></span></span></td></tr><tr><th scope="row">MIRIX</th><td>27.66</td><td>47.78</td><td>8.622</td><td><span class="token-track"><span style="width:46.6%"></span></span></td></tr><tr><th scope="row">MMA</th><td>28.19</td><td>48.35</td><td>15.752</td><td><span class="token-track"><span style="width:85.2%"></span></span></td></tr><tr><th scope="row">MemVerse</th><td>24.14</td><td>45.42</td><td>7.812</td><td><span class="token-track"><span style="width:42.2%"></span></span></td></tr><tr class="ours"><th scope="row">HiVe-Mem <span>Ours</span></th><td>32.32</td><td>57.96</td><td>0.658</td><td><span class="token-track"><span style="width:3.6%"></span></span></td></tr></tbody></table></div>
+      <p class="result-note">F1 and LLM-Judge are on a 0–100 scale. Tokens sum input and output consumption in millions for each benchmark; “average” is the arithmetic mean across benchmarks, not a per-query count. Reductions compare HiVe-Mem with the lowest-token competing method in the selected view.</p>
+      <details class="protocol-details"><summary>Source and experimental protocol <span aria-hidden="true">+</span></summary><div><p>Values are transcribed from Table 1 of the supplied manuscript. The comparison displays its five multimodal methods. The selector is trained on Qwen3-VL-4B-Instruct; GPT-5-mini uses the transferred selector without retraining. WorldMemArena uses the Lifelong subset.</p><p>These are reported paper results, not new measurements from this checkout. Paper settings use 5 semantic seeds, 2 expanded episodes, graph degree 4, and λ = 0 for the main results. Current release defaults differ; consult the repository’s training settings before reproduction.</p><a href="https://github.com/ViktorAxelsen/HiVe-Mem#training">Run settings ↗</a></div></details>
+      <noscript><p class="result-note">The table above shows Qwen3-VL-4B-Instruct averages. Enable JavaScript to explore all model and benchmark results.</p></noscript>
+    </section>
+
+    <section id="start" class="start-section" aria-labelledby="start-title"><div class="wrap start-layout"><div><p class="eyebrow">Build with HiVe-Mem</p><h2 id="start-title">Give your agent<br><em>a wider memory.</em></h2><p>Explore the method, build a memory bank, or train an evidence selector on three supported benchmarks.</p><div class="start-links"><a href="https://github.com/ViktorAxelsen/HiVe-Mem#installation">Installation guide ↗</a><a href="https://github.com/ViktorAxelsen/HiVe-Mem#configuration">Configuration ↗</a></div></div><div class="terminal"><div class="terminal-header"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span>Start with the code</span><span>bash</span></div><pre><code><span class="code-comment"># Linux · Python 3.10+</span>
+git clone https://github.com/ViktorAxelsen/HiVe-Mem.git
+cd HiVe-Mem
+bash scripts/install.sh
+source .venv/bin/activate
+cp .env.example .env
+</code></pre><p>Configure model services in .env, then follow the README to prepare data and build memories.</p></div></div></section>
+
+    <section id="citation" class="citation-section wrap" aria-labelledby="citation-title"><div><p class="eyebrow">For your research</p><h2 id="citation-title">Build on the idea.</h2><p>If HiVe-Mem informs your work, please cite the paper. The arXiv ID is pending.</p></div><div class="citation-box"><div class="citation-header"><span>BibTeX · arXiv ID pending</span><button id="copy-citation" type="button" disabled>Copy citation <span aria-hidden="true">⧉</span></button></div><pre><code id="citation-code">@article{hivemem2026,
+  title = {{HiVe-Mem}: Interleaving Horizontal Memory
+    Expansion and Vertical Evidence Composition
+    for Multimodal Agents},
+  author = {Zhang, Haozhen and Liu, Bohan and Bao, Jianzhu
+    and Liu, Qingyuan and Yue, Haodong and Li, Xiao
+    and Lim, Zi Pong and Wang, Wenya},
+  journal = {arXiv preprint arXiv:TBD},
+  year = {2026}
+}</code></pre><span id="copy-status" class="sr-only" role="status"></span></div></section>
+  </main>
+
+  <footer class="wrap footer"><a class="wordmark" href="#"><img src="assets/logo.svg" width="28" height="28" alt="">HiVe-Mem<span class="wordmark-dot">.</span></a><p>Connected memories. Considered evidence.</p><div><a href="https://github.com/ViktorAxelsen/HiVe-Mem">GitHub ↗</a><a href="https://github.com/ViktorAxelsen/HiVe-Mem/blob/main/LICENSE">MIT License ↗</a></div></footer>
+
+  <script id="benchmark-data" type="application/json">
+  {
+    "source": "Supplied HiVe-Mem manuscript, Table 1, page 6",
+    "metrics": {"f1": "0–100", "lj": "0–100", "tokens": "Total input + output tokens, millions; average across benchmarks, not per query"},
+    "methods": ["M2A", "MIRIX", "MMA", "MemVerse", "HiVe-Mem"],
+    "qwen": {
+      "name": "Qwen3-VL-4B-Instruct",
+      "average": [[28.42,43.89,18.492],[27.66,47.78,8.622],[28.19,48.35,15.752],[24.14,45.42,7.812],[32.32,57.96,0.658]],
+      "memgallery": [[47.95,62.55,11.707],[39.16,51.55,6.267],[33.51,51.55,33.034],[29.00,44.64,5.445],[49.44,71.55,0.491]],
+      "wma": [[14.12,37.73,24.536],[20.72,60.68,12.334],[28.24,59.77,6.343],[22.06,62.73,11.916],[23.66,68.18,0.991]],
+      "h2hmem": [[23.20,31.39,19.233],[23.09,31.11,7.266],[22.82,33.74,7.879],[21.36,28.89,6.074],[23.87,34.17,0.492]]
+    },
+    "gpt": {
+      "name": "GPT-5-mini (transfer)",
+      "average": [[34.04,57.93,9.941],[29.54,56.95,7.350],[27.83,53.29,9.037],[32.95,60.71,10.818],[35.94,64.69,0.748]],
+      "memgallery": [[49.79,65.82,9.311],[39.89,55.64,4.543],[33.87,54.55,4.228],[45.66,63.91,8.855],[53.31,72.45,0.367]],
+      "wma": [[23.00,65.68,7.955],[22.50,77.50,12.518],[24.32,67.50,3.450],[24.03,78.64,10.818],[24.80,79.32,1.021]],
+      "h2hmem": [[29.34,42.28,12.558],[26.23,37.71,4.988],[25.30,37.82,19.433],[29.16,39.58,12.782],[29.71,42.29,0.856]]
+    }
+  }
+  </script>
+</body>
+</html>

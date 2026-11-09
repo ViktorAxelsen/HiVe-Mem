@@ -33,7 +33,7 @@
         "data_dir": "dataset://memgallery/",
         "memory_bank": "outputs/memory/memgallery",
         "output_dir": "outputs/evidence_policy/memgallery",
-        "top_k": 7,
+        "top_k": 5,
         "excluded_categories": [
           "AR"
         ],
@@ -72,7 +72,7 @@
         "data_dir": "dataset://wma/",
         "memory_bank": "outputs/memory/wma",
         "output_dir": "outputs/evidence_policy/wma",
-        "top_k": 7,
+        "top_k": 5,
         "excluded_categories": [
           "MB"
         ],

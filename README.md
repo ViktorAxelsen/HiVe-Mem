@@ -12,7 +12,7 @@
 
 <p align="center">
   <a href="https://viktoraxelsen.github.io/HiVe-Mem/"><img src="https://img.shields.io/badge/Project-Page-286052?style=for-the-badge" alt="Project page"></a>
-  <img src="https://img.shields.io/badge/arXiv-TBD-B31B1B?style=for-the-badge&amp;logo=arxiv&amp;logoColor=white" alt="arXiv ID pending">
+  <a href="https://arxiv.org/abs/2611.12872"><img src="https://img.shields.io/badge/arXiv-2611.12872-B31B1B?style=for-the-badge&amp;logo=arxiv&amp;logoColor=white" alt="arXiv:2611.12872"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-716089?style=for-the-badge" alt="MIT license"></a>
 </p>
 
@@ -163,14 +163,15 @@ We thank the teams behind [Mem-Gallery](https://github.com/YuanchenBei/Mem-Galle
 <a id="citation"></a>
 ## Citation
 
-If you use HiVe-Mem in your research, please cite the paper (arXiv ID: TBD):
+If you use HiVe-Mem in your research, please cite the [paper](https://arxiv.org/abs/2611.12872):
 
 ```bibtex
 @article{hivemem2026,
   title = {{HiVe-Mem}: Interleaving Horizontal Memory Expansion and Vertical Evidence Composition for Multimodal Agents},
   author = {Zhang, Haozhen and Liu, Bohan and Bao, Jianzhu and Liu, Qingyuan and Yue, Haodong and Li, Xiao and Lim, Zi Pong and Wang, Wenya},
-  journal = {arXiv preprint arXiv:TBD},
-  year = {2026}
+  journal = {arXiv preprint arXiv:2611.12872},
+  year = {2026},
+  url = {https://arxiv.org/abs/2611.12872}
 }
 ```
 

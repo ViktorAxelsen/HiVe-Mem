@@ -52,7 +52,7 @@
     document.getElementById("result-lj").textContent = ours[1].toFixed(2);
     setMetric("result-tokens", ours[2].toFixed(3), "M");
     setMetric("result-savings", savings.toFixed(1), "%");
-    document.getElementById("results-caption").textContent = `${data[model].name} · ${datasetNames[dataset]} · manuscript Table 1`;
+    document.getElementById("results-caption").textContent = `${data[model].name} · ${datasetNames[dataset]} · paper Table 1`;
     modelButtons.forEach(button => {
       const active = button.dataset.model === model;
       button.classList.toggle("is-active", active);
